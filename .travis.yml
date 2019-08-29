@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t shpiglify/docker-react -f Dockerfile.dev . #building the test image
+
+script: 
+  - docker run shpiglify/docker-react npm run test -- -- coverage
